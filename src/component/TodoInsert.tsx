@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState,useCallback } from 'react';
 import styled from 'styled-components'
 
 const TodoInsertForm = styled.form`
@@ -31,9 +31,20 @@ const TodoInsertForm = styled.form`
 
 
 const TodoInsert = () => {
+  const [value, setValue] = useState("");
+  const onChange = (e:React.FormEvent<HTMLInputElement>) =>{
+    const newValue = e.currentTarget.value;
+    setValue(newValue);
+  };
+  console.log(value);
   return (
     <TodoInsertForm>
-      <input type="text" placeholder='할일을 입력하세요'/>
+      <input 
+      type="text" 
+      placeholder='할일을 입력하세요'
+      value={value}
+      onChange={onChange}
+      />
       <button type='submit'>✚</button>
     </TodoInsertForm>
   )
