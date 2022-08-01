@@ -10,7 +10,7 @@ const TodoInsertForm = styled.form`
     padding: 0 1rem;
     font-size: 15px;
     line-height: 1.5;
-
+    background: none;
     &::placeholder{
       color: #dee2e6;
     }
