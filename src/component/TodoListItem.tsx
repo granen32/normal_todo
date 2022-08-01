@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { TodosProps } from '../../@types/global/index';
 const TodoListItemBox = styled.div`
   padding: 15px;
   display: flex;
@@ -9,17 +9,22 @@ const TodoListItemBox = styled.div`
     background-color: #f8f9fa;
   }
 `;
+const CheckBoxContaianer = styled.div`
+  display: flex;
+  align-items: center;
+  & > label{
+    display: inline-block;
+    line-height: 16px;
+    margin-left: -4px;
+  }
+`;
 const CheckBox = styled.input.attrs({
   type: 'checkbox',
-})
-`
+})`
+  width: 16px;
+  height: 16px;
+  display: inline-block;
   cursor: pointer;
-  display:flex;
-  flex:1;
-  align-items: center;
-  &.checked{
-    color:#22b8cf;
-  }
 `;
 
 const CheckText = styled.p`
@@ -41,14 +46,16 @@ const ReMove = styled.div`
   }
 `;
 
-const TodoListItem = () => {
+const TodoListItem = ({todos}:TodosProps) => {
+  const {text, checked} = todos;
   return (
     <TodoListItemBox>
-      <CheckBox>
-        <CheckText>
-          할일
-        </CheckText>
-      </CheckBox>
+      <CheckBoxContaianer>
+        {checked ? <CheckBox /> : <CheckBox />}
+      </CheckBoxContaianer>
+      <CheckText>
+          {text}
+      </CheckText>
       <ReMove>
         ⛔️
       </ReMove>
