@@ -5,6 +5,7 @@ import {
  } from '../../@types/global';
 import CheckBox from '../component/CheckBox';
 import TextBox from '../component/TextBox';
+import DeleteTodo from '../component/DeleteTodo';
 
 const TodoListWrap = styled.div`
   width: 100%;
@@ -17,18 +18,22 @@ const TodoListWrap = styled.div`
   border-bottom: 1px solid #eceded;
 `;
 
-const TodoList = ({
+const Todo = ({
+  onClickCheck,
   completed,
-  text
+  onDelteBtn,
+  text,
+  id
 }: TodoListProps) => {
   return (
     <TodoListWrap>
-      <CheckBox checked={completed}/>
+      <CheckBox checked={completed} onClick={() => onClickCheck(id)}/>
       <TextBox completed={completed}>
         {text}
       </TextBox>
+      <DeleteTodo onClick={() => onDelteBtn(id)}/>
     </TodoListWrap>
   )
 }
 
-export default TodoList
+export default Todo

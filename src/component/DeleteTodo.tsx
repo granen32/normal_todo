@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { DelteBtn } from '../../@types/global';
 const DeleteBox = styled.div`
   width: 25px;
   height: 25px;
@@ -11,9 +11,11 @@ const DeleteBox = styled.div`
   }
 `;
 
-const DeleteTodo = () => {
+const DeleteTodo = ({
+  onClick
+}:DelteBtn) => {
   return (
-    <DeleteBox>
+    <DeleteBox onClick={onClick}> 
       🗑
     </DeleteBox>
   )

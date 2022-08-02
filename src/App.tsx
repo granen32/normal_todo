@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { lightTheme } from "./styles/theme";
 import GlobalStyle from './styles/GlobalStyle';
-import Todo from './pages/Todo';
+import TodoList from './pages/TodoList';
 
 const MainContainer = styled.div`
   display: flex;
@@ -15,20 +15,7 @@ const AppContainer = styled.div`
   background-color: rgb(255, 241, 253);
   position: relative;
 `;
-const InputText = styled.input`
-  width: 100%;
-  height: 50px;
-  border: 0.1px solid black;
-  font-size: 18px;
-  text-align:center;
-  box-sizing: border-box;
-  position: absolute;
-  bottom: 0;
-  &:focus{
-    outline: none;
-    border: 1px solid black;
-  }
-`;
+
 
 function App() {
   return (
@@ -36,12 +23,7 @@ function App() {
       <GlobalStyle />
       <MainContainer>
         <AppContainer>
-          <Todo text='할일 1'/>
-          <Todo text='할일 2'/>
-          <Todo text='할일 3' completed/>
-          <InputText
-          placeholder='내용을 입력한 후 엔터'
-          />
+          <TodoList />
         </AppContainer>
       </MainContainer>
     </ThemeProvider>

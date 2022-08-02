@@ -10,6 +10,26 @@ export interface CheckBoxProps {
 }
 // todolist props
 export interface TodoListProps {
+  onClickCheck(id :number):void;
+  onDelteBtn(id :number):void;
+  id: number;
   completed?: boolean;
   text: string;
+}
+// delete btn
+export interface DelteBtn {
+  onClick?(): void;
+}
+
+// input type
+export interface InputBoxProps {
+  onChange(e:React.ChangeEvent<HTMLInputElement>) :void;
+  onKeyDown(e:React.KeyboardEvent<HTMLInputElement>) :void;
+  inputText:string;
+}
+
+export interface NewTodo {
+  id:number;
+  text:string;
+  completed:boolean;
 }
