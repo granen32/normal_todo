@@ -54,6 +54,7 @@ const TodoList = () => {
     <>
       {todos.map(todo =>
         <Todo
+          key={todo.id}
           id={todo.id}
           text={todo.text}
           completed={todo.completed}
