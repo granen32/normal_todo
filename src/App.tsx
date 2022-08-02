@@ -1,22 +1,49 @@
-import React,{ useState,useRef,useCallback } from 'react';
-import { ThemeProvider } from 'styled-components';
+import React from 'react';
+import styled, { ThemeProvider } from 'styled-components';
 import { lightTheme } from "./styles/theme";
-import TodoTemplate from './pages/TodoTemplate';
 import GlobalStyle from './styles/GlobalStyle';
-import TodoInsert from './component/TodoInsert';
-import TodoList from './pages/TodoList';
-import { TodosProps } from '../@types/global/index';
+import Todo from './pages/Todo';
+
+const MainContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+const AppContainer = styled.div`
+  width: 500px;
+  height: 800px;
+  background-color: rgb(255, 241, 253);
+  position: relative;
+`;
+const InputText = styled.input`
+  width: 100%;
+  height: 50px;
+  border: 0.1px solid black;
+  font-size: 18px;
+  text-align:center;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  &:focus{
+    outline: none;
+    border: 1px solid black;
+  }
+`;
+
 function App() {
-  const [todos, setTodos] = useState<TodosProps["todos"]>();
-  
-  
   return (
     <ThemeProvider theme={lightTheme}>
       <GlobalStyle />
-      <TodoTemplate>
-        <TodoInsert/>
-        <TodoList todos={todos}/>
-      </TodoTemplate>
+      <MainContainer>
+        <AppContainer>
+          <Todo text='할일 1'/>
+          <Todo text='할일 2'/>
+          <Todo text='할일 3' completed/>
+          <InputText
+          placeholder='내용을 입력한 후 엔터'
+          />
+        </AppContainer>
+      </MainContainer>
     </ThemeProvider>
   );
 }

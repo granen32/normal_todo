@@ -1,10 +1,15 @@
 // 투두 프롭스
-export type TodosProps = {
-  todos :[
-    {
-      id:number;
-      text:string;
-      checked:boolean;
-    }
-  ]
+export interface TextProps {
+  completed?: boolean;
+  children: React.ReactNode;
+}
+// 체크박스
+export interface CheckBoxProps {
+  checked?: boolean;
+  onClick?(): void;
+}
+// todolist props
+export interface TodoListProps {
+  completed?: boolean;
+  text: string;
 }
